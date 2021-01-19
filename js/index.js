@@ -32,8 +32,6 @@ function removeProduct(event) {
 
   const productToRemove = event.target.parentNode.parentNode;
 
-  console.log(productToRemove);
-
   const productList = productToRemove.parentNode;
   
   productList.removeChild(productToRemove);
@@ -54,8 +52,10 @@ function createProduct() {
 
   const table = document.getElementsByTagName('tbody')[0];
   let newRow = table.insertRow();
+  
+  newRow.className = 'product';
 
-  newRow.innerHTML = `<tr class="product">
+  newRow.innerHTML = `<tr>
   <td class="name">
     <span>${newProductName}</span>
   </td>
@@ -68,10 +68,11 @@ function createProduct() {
   <button class="btn btn-remove">Remove</button>
   </td>`
 
-  newRow.className = 'product';
-
   const addedBtn = newRow.querySelector('.btn-remove');
   addedBtn.addEventListener('click', removeProduct);
+
+  inputValuess[0].value = '';
+  inputValuess[1].value = 0;
 
   calculateAll();
 }

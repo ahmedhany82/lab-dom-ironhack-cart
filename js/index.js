@@ -14,8 +14,8 @@ function updateSubtotal(product) {
 function calculateAll() {
 
   const products = document.querySelectorAll('.product');
+  
   let totalPrice = 0;
-
   products.forEach(function(product) { 
     totalPrice += updateSubtotal(product);
   })
